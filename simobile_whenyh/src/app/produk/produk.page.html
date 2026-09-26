@@ -1,11 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-        <ion-buttons slot="start">
+    <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>produk</ion-title>
+    <ion-title>PRODUK</ion-title>
 
-    
+
     <ion-buttons slot="end">
       <ion-button routerLink="/tambah-produk">
         <ion-icon slot="icon-only" name="add-circle"></ion-icon>
@@ -15,21 +15,59 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-   <ion-item class="ion-margin-bottom">
+  <ion-item class="ion-margin-bottom">
     <ion-icon name="search-outline" slot="start"></ion-icon>
     <ion-input label="Cari Barang" labelPlacement="floating" placeholder="Ketik nama produk..."
       [(ngModel)]="searchQuery">
     </ion-input>
   </ion-item>
+ <ion-list>
+    <ion-list-header>
+      <ion-label>Filter Kategori</ion-label>
+    </ion-list-header>
+    
+    <ion-radio-group [(ngModel)]="selectedCategory">
 
+      <div style="display: flex; padding-bottom: 10px;">
+        <ion-item lines="none" style=" margin-right: 5px;">
+          <ion-radio value="Semua" slot="start"></ion-radio>
+          <ion-label style="font-size: 14px;">Semua</ion-label>
+        </ion-item>
+
+        <ion-item lines="none" style="margin-right: 5px;">
+          <ion-radio value="Makanan" slot="start"></ion-radio>
+          <ion-label style="font-size: 14px;">Makanan</ion-label>
+        </ion-item>
+
+        <ion-item lines="none" style="margin-right: 5px;">
+          <ion-radio value="Minuman" slot="start"></ion-radio>
+          <ion-label style="font-size: 14px;">Minuman</ion-label>
+        </ion-item>
+
+        <ion-item lines="none" style="margin-right: 5px;">
+          <ion-radio value="Sembako" slot="start"></ion-radio>
+          <ion-label style="font-size: 14px;">Sembako</ion-label>
+        </ion-item>
+
+        <ion-item lines="none" style="margin-right: 5px;">
+          <ion-radio value="Bumbu" slot="start"></ion-radio>
+          <ion-label style="font-size: 14px;">Bumbu</ion-label>
+        </ion-item>
+
+        <ion-item lines="none" style="margin-right: 15px;">
+          <ion-radio value="Kebutuhan Mandi" slot="start"></ion-radio>
+          <ion-label style="font-size: 14px;">Kebutuhan Mandi</ion-label>
+        </ion-item>
+      </div>
+    </ion-radio-group>
+  </ion-list>
 
   <ion-grid>
     <ion-row *ngFor="let barisProduk of chunkArray(getFilteredProduk(), 2)">
       <ion-col *ngFor="let p of barisProduk">
         <ion-card>
-          <img [src]="p.gambar === '' ? 'https://ionicframework.com/docs/img/demos/thumbnail.svg' : p.gambar" 
-               routerLink="/details/{{ p.id }}" 
-               style="height: 350px; object-fit: cover; width: 100%;" />
+          <img [src]="p.gambar === '' ? 'https://ionicframework.com/docs/img/demos/thumbnail.svg' : p.gambar"
+            routerLink="/details/{{ p.id }}" style="height: 350px; object-fit: cover; width: 100%;" />
           <ion-card-header>
             <ion-card-title style="font-size: 14px;" routerLink="/details/{{ p.id }}">
               {{ p.nama }}

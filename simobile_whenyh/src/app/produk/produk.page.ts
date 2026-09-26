@@ -10,6 +10,7 @@ import { Produk } from '../produk';
 export class ProdukPage implements OnInit {
 
   searchQuery: string = '';
+  selectedCategory: string = 'Semua';
   semuaProduk: any[] = [];
 
   constructor(private produk: Produk) { }
@@ -19,12 +20,18 @@ export class ProdukPage implements OnInit {
   }
 
   getFilteredProduk() {
-    if (this.searchQuery === '') {
-      return this.semuaProduk;
+    let hasilFilter = this.semuaProduk;
+    
+    if (this.searchQuery !== '') {
+      hasilFilter = hasilFilter.filter(p => 
+        p.nama.toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
     }
-    return this.semuaProduk.filter(p =>
-      p.nama.toLowerCase().includes(this.searchQuery.toLowerCase())
-    );
+    if (this.selectedCategory !== 'Semua') {
+      hasilFilter = hasilFilter.filter(p => p.kategori === this.selectedCategory);
+    }
+
+    return hasilFilter;
   }
 
   chunkArray(arr: any[], chunkSize: number): any[][] {
