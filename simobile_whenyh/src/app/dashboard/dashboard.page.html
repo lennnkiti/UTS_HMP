@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -8,7 +8,16 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <h2>Selamat datang, {{ namaUser }}</h2>
-  <p>Total Produk: {{ totalProduk }}</p>
-  <p>Produk Terlaris: {{ produkTerlaris }}</p>
+  <ion-item>
+    <h2>Selamat datang, {{namaUser}}</h2>
+  </ion-item>
+  <ion-item>
+    <ion-text>Total Produk: {{totalProduk}}</ion-text>
+  </ion-item>
+  <ion-item>
+    <ion-text>Produk Terlaris: {{produkTerlaris}}</ion-text>
+  </ion-item>
+  <ion-item>
+    <ion-text>Total Transaksi hari ini: </ion-text>
+  </ion-item>
 </ion-content>
