@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/produk"></ion-back-button>
+    </ion-buttons>
+    <ion-title>KERANJANG</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="items.length == 0" style="text-align: center;margin-top: 80px;">
+    <ion-icon name="cart-outline" style="font-size: 80px; color: #cccc;">  
+    </ion-icon>
+    <p style="color: #aaaa; font-size: 16px;">
+      Keranjang masih kosong
+    </p>
+  </div>
+
+  <ion-list *ngIf="items.length > 0">
+    <ion-item *ngFor="let item of items">
+      <ion-thumbnail slot="start">
+        <img [src]="item.gambar == '' ? 'https://ionicframework.com/docs/img/demos/thumbnail.svg' : item.gambar">
+      </ion-thumbnail>
+
+      <ion-label>
+        <h2>{{ item.nama }}</h2>
+        <p>Harga: Rp {{ item.harga_jual }}</p>
+
+        <div style="display: flex; align-items: center; margin-top: 8px;">
+          <ion-button size="small" color="light" (click)="kurang(item)">
+            <ion-icon slot="icon-only" name="remove-outline"></ion-icon>
+          </ion-button>
+          
+          <ion-input type="number" [(ngModel)]="item.jumlah" (input)="validasiJumlah(item)"
+            style="width: 55px; text-align: center; border: 1px solid #ccc; border-radius: 5px; margin: 0 10px;">
+          </ion-input>
+
+          <ion-button size="small" color="light" (click)="tambah(item)">
+            <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+          </ion-button>
+        </div>
+
+        <p><b>Subtotal: Rp {{item.harga_jual * item.jumlah}}</b></p>
+      </ion-label>
+
+      <ion-button slot="end" color="danger" fill="clear" (click)="hapus(item.id)">
+        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="items.length > 0" style="padding: 16px">
+    <ion-card>
+      <ion-card-content>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+          <span style="font-size: 16px;">Total Belanja:</span>
+          <strong style="font-size: 18px;">Rp {{ getTotal() }}</strong>
+        </div>
+        <ion-button expand="block" color="success" (click)="konfirmasiTransaksi()">
+          <ion-icon slot="start" name="checkmark-circle-outline"></ion-icon>
+          Konfirmasi Transaksi
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

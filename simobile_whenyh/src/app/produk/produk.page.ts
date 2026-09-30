@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Produk } from '../produk';
+import { Keranjang } from '../keranjang';
 
 @Component({
   selector: 'app-produk',
@@ -13,7 +14,7 @@ export class ProdukPage implements OnInit {
   selectedCategory: string = 'Semua';
   semuaProduk: any[] = [];
 
-  constructor(private produk: Produk) { }
+  constructor(private produk: Produk, private keranjang: Keranjang) { }
 
   ngOnInit() {
     this.semuaProduk = this.produk.dataProduk;
@@ -21,9 +22,9 @@ export class ProdukPage implements OnInit {
 
   getFilteredProduk() {
     let hasilFilter = this.semuaProduk;
-    
+
     if (this.searchQuery !== '') {
-      hasilFilter = hasilFilter.filter(p => 
+      hasilFilter = hasilFilter.filter(p =>
         p.nama.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
     }
@@ -41,9 +42,9 @@ export class ProdukPage implements OnInit {
     }
     return result;
   }
-  
+
   tambahKeKeranjang(item: any) {
-    console.log('Berhasil menambahkan', item.nama, 'ke keranjang!');
+    this.keranjang.addProduct(item);
   }
 
 }
