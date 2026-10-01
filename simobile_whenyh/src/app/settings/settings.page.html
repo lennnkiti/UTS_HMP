@@ -8,9 +8,15 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">settings</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list-header>
+    <ion-label>Tampilan</ion-label>
+  </ion-list-header>
+  <ion-item>
+    <ion-icon slot="start" name="moon-outline"></ion-icon>
+    <ion-label>Mode Gelap (Dark Mode)</ion-label>
+    <ion-toggle slot="end" 
+                  [checked]="themeService.isDarkMode" 
+                  (ionChange)="toggleDarkMode()">
+      </ion-toggle>
+  </ion-item>
 </ion-content>

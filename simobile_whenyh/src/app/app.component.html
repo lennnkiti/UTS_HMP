@@ -1,4 +1,4 @@
-<ion-app>
+<ion-app [class.tema-gelap]="themeService.isDarkMode">
   <ion-menu *ngIf="auth.isLoggedIn" auto-hide="true" contentId="main-content">
     <ion-header>
       <ion-toolbar>

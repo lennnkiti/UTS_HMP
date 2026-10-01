@@ -1,19 +1,17 @@
 // For information on how to create your own theme, please refer to:
 // https://ionicframework.com/docs/theming/
 :root {
-  --ion-color-primary: #2e7d32;
-  --ion-color-primary-rgb: 46, 125, 50;
+  --ion-color-primary: #2a9d8f;
+  --ion-color-primary-rgb: 42, 157, 143;
   --ion-color-primary-contrast: #ffffff;
-  --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #286e2c;
-  --ion-color-primary-tint: #438a47;
+  --ion-color-primary-shade: #258a7e;
+  --ion-color-primary-tint: #3fb7a8;
 
-  --ion-color-secondary: #fbc02d;
-  --ion-color-secondary-rgb: 251, 192, 45;
+  --ion-color-secondary: #e6af2e;
+  --ion-color-secondary-rgb: 230, 175, 46;
   --ion-color-secondary-contrast: #000000;
-  --ion-color-secondary-contrast-rgb: 0, 0, 0;
-  --ion-color-secondary-shade: #dd9e28;
-  --ion-color-secondary-tint: #fcc642;
+  --ion-color-secondary-shade: #ca9a28;
+  --ion-color-secondary-tint: #e8b743;
 
   --ion-color-tertiary: #7cb342;
   --ion-color-tertiary-rgb: 124, 179, 66;
@@ -21,4 +19,15 @@
   --ion-color-tertiary-contrast-rgb: 255, 255, 255;
   --ion-color-tertiary-shade: #6d9e3a;
   --ion-color-tertiary-tint: #89bb55;
+}
+
+.tema-gelap {
+  --ion-background-color: #121212;
+  --ion-text-color: #ffffff;
+  --ion-item-background: #1e1e1e;
+  --ion-card-background: #1e1e1e;
+  --ion-toolbar-background: #1e1e1e;
+  --ion-color-primary: #2a9d8f;
+  --ion-color-secondary: #e6af2e;
+  --ion-border-color: #333333;
 }
