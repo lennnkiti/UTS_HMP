@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Produk } from '../produk';
 
 @Component({
@@ -10,48 +9,49 @@ import { Produk } from '../produk';
   standalone: false,
 })
 export class TambahProdukPage implements OnInit {
-  produkForm!: FormGroup;
+  nama: string = '';
+  kategori: string = '';
+  harga_beli: number = 0;
+  harga_jual: number = 0;
+  stok: number = 0;
+  gambar: string = '';
+
   isSubmit: boolean = false;
 
-  constructor(private produkService: Produk, private router: Router, private fb: FormBuilder) { }
+  constructor(private produkService: Produk, private router: Router) { }
 
   ngOnInit() {
-    this.produkForm = this.fb.group({
-      nama: ['', Validators.required],
-      kategori: ['', Validators.required],
-      harga_beli: [0, [Validators.required, Validators.min(1)]],
-      harga_jual: [0, [Validators.required, Validators.min(1)]],
-      stok: [0, [Validators.required, Validators.min(0)]],
-      gambar: ['']
-    });
   }
-  get f() {
-    return this.produkForm.controls;
-  }
-  simpan() {
-    this.isSubmit = true;
+ simpan() {
+    this.isSubmit = true; 
 
-    if (this.produkForm.valid) {
-      const dataForm = this.produkForm.value;
-
+    if (this.nama !== '' && this.kategori !== '' && this.harga_beli > 0 && this.harga_jual > 0 && this.stok >= 0) {
+      
       let idBaru = 'p' + (this.produkService.dataProduk.length + 1).toString().padStart(2, '0');
-
       let produkBaru = {
         id: idBaru,
-        nama: dataForm.nama,
-        kategori: dataForm.kategori,
-        stok: dataForm.stok,
-        harga_beli: dataForm.harga_beli,
-        harga_jual: dataForm.harga_jual,
+        nama: this.nama,
+        kategori: this.kategori,
+        stok: this.stok,
+        harga_beli: this.harga_beli,
+        harga_jual: this.harga_jual,
         terjual: 0,
-        gambar: dataForm.gambar
+        gambar: this.gambar
       };
 
       this.produkService.dataProduk.push(produkBaru);
-
-      this.produkForm.reset();
-      this.isSubmit = false;
+      this.resetForm();
       this.router.navigate(['/produk']);
     }
+  }
+
+  resetForm() {
+    this.nama = '';
+    this.kategori = '';
+    this.harga_beli = 0;
+    this.harga_jual = 0;
+    this.stok = 0;
+    this.gambar = '';
+    this.isSubmit = false;
   }
 }

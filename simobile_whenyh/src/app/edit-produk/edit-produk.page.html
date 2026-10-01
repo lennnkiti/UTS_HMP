@@ -1,74 +1,65 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/produk"></ion-back-button>
-    </ion-buttons>
-    <ion-title>EDIT PRODUK</ion-title>
+    <ion-title>TAMBAH PRODUK BARU</ion-title>
   </ion-toolbar>
+
+  <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <form [formGroup]="editForm" (ngSubmit)="simpanPerubahan()">
-    <ion-list>
+  <ion-list>
 
-      <ion-item>
-        <ion-input formControlName="nama" label="Nama Barang*" labelPlacement="stacked"></ion-input>
-      </ion-item>
-      <ion-text color="danger" *ngIf="isSubmit && f['nama'].errors?.['required']">
-        <p class="ion-padding-start" style="margin-top: 0; font-size: 12px;">Nama barang wajib diisi!</p>
-      </ion-text>
+    <ion-item>
+      <ion-input label="Nama Barang*" labelPlacement="stacked" placeholder="Contoh: Sabun Cuci" [(ngModel)]="nama"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="isSubmit && nama === ''">
+      <p class="ion-padding-start" style="margin-top: 0; font-size: 12px;">Nama barang wajib diisi!</p>
+    </ion-text>
 
-      <ion-item>
-        <ion-select formControlName="kategori" label="Kategori*" labelPlacement="stacked" placeholder="Pilih Kategori">
-          <ion-select-option value="Sembako">Sembako</ion-select-option>
-          <ion-select-option value="Makanan">Makanan</ion-select-option>
-          <ion-select-option value="Minuman">Minuman</ion-select-option>
-          <ion-select-option value="Kebutuhan Mandi">Kebutuhan Mandi</ion-select-option>
-          <ion-select-option value="Bumbu">Bumbu</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-text color="danger" *ngIf="isSubmit && f['kategori'].errors?.['required']">
-        <p class="ion-padding-start" style="margin-top: 0; font-size: 12px;">Kategori wajib dipilih!</p>
-      </ion-text>
+    <!-- Gunakan select agar input kategori lebih rapi -->
+    <ion-item>
+      <ion-select label="Kategori*" labelPlacement="stacked" placeholder="Pilih Kategori" [(ngModel)]="kategori">
+        <ion-select-option value="Sembako">Sembako</ion-select-option>
+        <ion-select-option value="Makanan">Makanan</ion-select-option>
+        <ion-select-option value="Minuman">Minuman</ion-select-option>
+        <ion-select-option value="Kebutuhan Mandi">Kebutuhan Mandi</ion-select-option>
+        <ion-select-option value="Bumbu">Bumbu</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-text color="danger" *ngIf="isSubmit && kategori === ''">
+      <p class="ion-padding-start" style="margin-top: 0; font-size: 12px;">Kategori wajib diisi!</p>
+    </ion-text>
 
-      <ion-item>
-        <ion-input formControlName="harga_beli" type="number" label="Harga Beli*" labelPlacement="stacked"></ion-input>
-      </ion-item>
-      <ion-text color="danger" *ngIf="isSubmit && f['harga_beli'].errors?.['required']">
-        <p class="ion-padding-start" style="margin-top: 0; font-size: 12px;">Harga beli wajib diisi!</p>
-      </ion-text>
-      <ion-text color="danger" *ngIf="isSubmit && f['harga_beli'].errors?.['min']">
-        <p class="ion-padding-start" style="margin-top: 0; font-size: 12px;">Harga beli harus berupa angka lebih dari 0!</p>
-      </ion-text>
+    <ion-item>
+      <ion-input type="number" label="Harga Beli*" labelPlacement="stacked" [(ngModel)]="harga_beli"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="isSubmit && harga_beli <= 0">
+      <p class="ion-padding-start" style="margin-top: 0; font-size: 12px;">Harga beli harus berupa angka lebih dari 0!</p>
+    </ion-text>
 
-      <ion-item>
-        <ion-input formControlName="harga_jual" type="number" label="Harga Jual*" labelPlacement="stacked"></ion-input>
-      </ion-item>
-      <ion-text color="danger" *ngIf="isSubmit && f['harga_jual'].errors?.['required']">
-        <p class="ion-padding-start" style="margin-top: 0; font-size: 12px;">Harga jual wajib diisi!</p>
-      </ion-text>
-      <ion-text color="danger" *ngIf="isSubmit && f['harga_jual'].errors?.['min']">
-        <p class="ion-padding-start" style="margin-top: 0; font-size: 12px;">Harga jual harus berupa angka lebih dari 0!</p>
-      </ion-text>
+    <ion-item>
+      <ion-input type="number" label="Harga Jual*" labelPlacement="stacked" [(ngModel)]="harga_jual"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="isSubmit && harga_jual <= 0">
+      <p class="ion-padding-start" style="margin-top: 0; font-size: 12px;">Harga jual harus berupa angka lebih dari 0!</p>
+    </ion-text>
 
-      <ion-item>
-        <ion-input formControlName="stok" type="number" label="Stok Barang*" labelPlacement="stacked"></ion-input>
-      </ion-item>
-      <ion-text color="danger" *ngIf="isSubmit && f['stok'].errors?.['required']">
-        <p class="ion-padding-start" style="margin-top: 0; font-size: 12px;">Stok wajib diisi!</p>
-      </ion-text>
-      <ion-text color="danger" *ngIf="isSubmit && f['stok'].errors?.['min']">
-        <p class="ion-padding-start" style="margin-top: 0; font-size: 12px;">Stok tidak boleh bernilai negatif!</p>
-      </ion-text>
+    <ion-item>
+      <ion-input type="number" label="Stok Barang*" labelPlacement="stacked" [(ngModel)]="stok"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="isSubmit && stok < 0">
+      <p class="ion-padding-start" style="margin-top: 0; font-size: 12px;">Stok tidak boleh bernilai negatif!</p>
+    </ion-text>
 
-      <ion-item>
-        <ion-input formControlName="gambar" label="URL Gambar" labelPlacement="stacked"></ion-input>
-      </ion-item>
+    <ion-item>
+      <ion-input label="URL Gambar" labelPlacement="stacked" placeholder="Biarkan kosong jika belum ada" [(ngModel)]="gambar"></ion-input>
+    </ion-item>
 
-    </ion-list>
+  </ion-list>
 
-    <ion-button type="submit" expand="block" class="ion-margin-top">
-      SIMPAN PERUBAHAN
-    </ion-button>
-  </form>
+  <ion-button expand="block" (click)="simpanPerubahan()" class="ion-margin-top">
+    SIMPAN PRODUK
+  </ion-button>
 </ion-content>
