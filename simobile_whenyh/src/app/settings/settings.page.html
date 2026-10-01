@@ -15,7 +15,7 @@
     <ion-icon slot="start" name="moon-outline"></ion-icon>
     <ion-label>Mode Gelap (Dark Mode)</ion-label>
     <ion-toggle slot="end" 
-                  [checked]="themeService.isDarkMode" 
+                  [(ngModel)]="themeService.isDarkMode" 
                   (ionChange)="toggleDarkMode()">
       </ion-toggle>
   </ion-item>

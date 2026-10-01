@@ -15,6 +15,6 @@ export class SettingsPage implements OnInit {
   }
 
   toggleDarkMode() {
-    this.themeService.isDarkMode = !this.themeService.isDarkMode;
+    this.themeService.toggleTheme();
   }
 }
