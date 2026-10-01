@@ -47,6 +47,11 @@ const routes: Routes = [
     path: 'keranjang',
     loadChildren: () => import('./keranjang/keranjang.module').then( m => m.KeranjangPageModule)
   },
+  {
+    path: 'edit-produk/:id',
+    loadChildren: () => import('./edit-produk/edit-produk.module').then( m => m.EditProdukPageModule)
+  },
+
 ];
 
 @NgModule({

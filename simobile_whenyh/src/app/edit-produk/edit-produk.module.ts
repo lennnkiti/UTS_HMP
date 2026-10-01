@@ -4,9 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular/lazy';
 
-import { TambahProdukPageRoutingModule } from './tambah-produk-routing.module';
+import { EditProdukPageRoutingModule } from './edit-produk-routing.module';
 
-import { TambahProdukPage } from './tambah-produk.page';
+import { EditProdukPage } from './edit-produk.page';
 
 @NgModule({
   imports: [
@@ -14,8 +14,8 @@ import { TambahProdukPage } from './tambah-produk.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    TambahProdukPageRoutingModule
+    EditProdukPageRoutingModule
   ],
-  declarations: [TambahProdukPage]
+  declarations: [EditProdukPage]
 })
-export class TambahProdukPageModule {}
+export class EditProdukPageModule {}

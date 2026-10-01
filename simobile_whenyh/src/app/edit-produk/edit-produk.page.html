@@ -1,25 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
-    <ion-title>TAMBAH PRODUK BARU</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/produk"></ion-back-button>
+    </ion-buttons>
+    <ion-title>EDIT PRODUK</ion-title>
   </ion-toolbar>
-
-  <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-  </ion-buttons>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <form [formGroup]="produkForm" (ngSubmit)="simpan()">
+  <form [formGroup]="editForm" (ngSubmit)="simpanPerubahan()">
     <ion-list>
-      <ion-item>
-        <ion-input formControlName="nama" label="Nama Barang*" labelPlacement="stacked" placeholder="Contoh: Sabun Cuci"></ion-input>
-      </ion-item>
 
+      <ion-item>
+        <ion-input formControlName="nama" label="Nama Barang*" labelPlacement="stacked"></ion-input>
+      </ion-item>
       <ion-text color="danger" *ngIf="isSubmit && f['nama'].errors?.['required']">
         <p class="ion-padding-start" style="margin-top: 0; font-size: 12px;">Nama barang wajib diisi!</p>
       </ion-text>
 
-     <ion-item>
+      <ion-item>
         <ion-select formControlName="kategori" label="Kategori*" labelPlacement="stacked" placeholder="Pilih Kategori">
           <ion-select-option value="Sembako">Sembako</ion-select-option>
           <ion-select-option value="Makanan">Makanan</ion-select-option>
@@ -29,7 +28,7 @@
         </ion-select>
       </ion-item>
       <ion-text color="danger" *ngIf="isSubmit && f['kategori'].errors?.['required']">
-        <p class="ion-padding-start" style="margin-top: 0; font-size: 12px;">Kategori wajib diisi!</p>
+        <p class="ion-padding-start" style="margin-top: 0; font-size: 12px;">Kategori wajib dipilih!</p>
       </ion-text>
 
       <ion-item>
@@ -63,12 +62,13 @@
       </ion-text>
 
       <ion-item>
-        <ion-input formControlName="gambar" label="URL Gambar" labelPlacement="stacked" placeholder="Biarkan kosong jika belum ada"></ion-input>
+        <ion-input formControlName="gambar" label="URL Gambar" labelPlacement="stacked"></ion-input>
       </ion-item>
 
     </ion-list>
+
     <ion-button type="submit" expand="block" class="ion-margin-top">
-      SIMPAN PRODUK
+      SIMPAN PERUBAHAN
     </ion-button>
   </form>
 </ion-content>

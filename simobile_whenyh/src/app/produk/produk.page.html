@@ -83,6 +83,11 @@
             <ion-button expand="block" size="small" [disabled]="p.stok == 0" (click)="tambahKeKeranjang(p)">
               + Keranjang
             </ion-button>
+
+            <ion-button expand="block" size="small"  color="danger" routerLink="/edit-produk/{{ p.id }}">
+              <ion-icon slot="start" name="create-outline"></ion-icon>
+              Edit Produk
+            </ion-button>
           </ion-card-content>
         </ion-card>
       </ion-col>
