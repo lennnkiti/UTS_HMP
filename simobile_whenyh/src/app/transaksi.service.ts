@@ -24,6 +24,22 @@ export interface Transaksi {
 
 @Injectable({ providedIn: 'root' })
 export class TransaksiService {
+
+    private bulan = [
+            'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember',
+        ];
+
     private dataRaw: TransaksiRaw[] = [
         {
             tanggal: '27 September 2026',
@@ -81,25 +97,12 @@ export class TransaksiService {
     }
 
     tambahTransaksi(items: ItemBelanja[], total: number) {
-        const bulan = [
-            'Januari',
-            'Februari',
-            'Maret',
-            'April',
-            'Mei',
-            'Juni',
-            'Juli',
-            'Agustus',
-            'September',
-            'Oktober',
-            'November',
-            'Desember',
-        ];
+
         const sekarang = new Date();
         const d = sekarang.getDate();
         const n = sekarang.getMonth(); // 0-11
         const y = sekarang.getFullYear();
-        const tanggal = d + ' ' + bulan[n] + ' ' + y;
+        const tanggal = d + ' ' + this.bulan[n] + ' ' + y;
 
         this.riwayat.unshift({
             tanggal: tanggal,
@@ -113,5 +116,31 @@ export class TransaksiService {
 
     getRiwayat(): Transaksi[] {
         return this.riwayat;
+    }
+
+    getTransaksiHariIni(): number {
+        const sekarang = new Date();
+        const hariIni = sekarang.getDate() + ' ' + this.bulan[sekarang.getMonth()] + ' ' + sekarang.getFullYear();
+
+        let jumlah = 0;
+        for (let t of this.riwayat) {
+            if (t.tanggal === hariIni) {
+                jumlah++;
+            }
+        }
+
+        return jumlah;
+    }
+
+    getPenjualanHariIni():number {
+        const sekarang = new Date();
+        const hariIni = sekarang.getDate() + ' ' + this.bulan[sekarang.getMonth()] + ' ' + sekarang.getFullYear();
+        let total = 0;
+        for (let t of this.riwayat) {
+            if (t.tanggal === hariIni) {
+                total += t.totalHarga;
+            }
+        }
+        return total;
     }
 }

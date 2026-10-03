@@ -27,7 +27,7 @@ export class Produk {
         terlaris = p;
       }
     }
-    return terlaris.nama;
+    return terlaris;
   }
 
   getProdukById(id: string) {

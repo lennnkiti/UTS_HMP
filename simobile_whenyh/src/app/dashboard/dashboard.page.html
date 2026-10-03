@@ -11,13 +11,52 @@
   <ion-item>
     <h2>Selamat datang, {{namaUser}}</h2>
   </ion-item>
-  <ion-item>
-    <ion-text>Total Produk: {{totalProduk}}</ion-text>
-  </ion-item>
-  <ion-item>
-    <ion-text>Produk Terlaris: {{produkTerlaris}}</ion-text>
-  </ion-item>
-  <ion-item>
-    <ion-text>Total Transaksi hari ini: </ion-text>
-  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Total Produk</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <h2>{{totalProduk}}</h2>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Total Transaksi Hari Ini</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <h2>{{totalTransaksi}}</h2>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Total Penjualan Hari ini</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <h2>Rp{{totalPenjualan | number}}</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              Produk Terlaris
+            </ion-card-title>
+          </ion-card-header>
+          <ion-img [src]="produkTerlaris.gambar" [alt]="produkTerlaris.nama"></ion-img>
+          <ion-card-header>{{produkTerlaris.nama}}</ion-card-header>
+          <ion-card-content>
+            <ion-text>Harga: Rp{{produkTerlaris.harga_jual}}</ion-text><br>
+            <ion-text>Stok: {{produkTerlaris.stok}}</ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
