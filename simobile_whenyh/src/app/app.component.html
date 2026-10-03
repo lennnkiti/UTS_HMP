@@ -13,14 +13,21 @@
             <ion-label>Pengaturan</ion-label>
           </ion-item>
         </ion-menu-toggle>
-        <ion-item routerLink="/about">
-          <ion-icon name="information-circle-outline" slot="start"></ion-icon>
-          <ion-label>Tentang Aplikasi</ion-label>
-        </ion-item>
-        <ion-item button (click)="logout()">
-          <ion-icon name="log-out-outline" slot="start"></ion-icon>
-          <ion-label>Keluar</ion-label>
-        </ion-item>
+
+        <ion-menu-toggle>
+          <ion-item routerLink="/about">
+            <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+            <ion-label>Tentang Aplikasi</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item button routerLink="/login" (click)="logout()">
+            <ion-icon name="log-out-outline" slot="start"></ion-icon>
+            <ion-label>Keluar</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
       </ion-list>
     </ion-content>
   </ion-menu>

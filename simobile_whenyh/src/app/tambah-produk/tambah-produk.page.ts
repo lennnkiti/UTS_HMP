@@ -28,7 +28,7 @@ export class TambahProdukPage implements OnInit {
 
     if (this.nama !== '' && this.kategori !== '' && this.harga_beli > 0 && this.harga_jual > 0 && this.stok >= 0) {
 
-      let idBaru = 'p' + (this.produkService.dataProduk.length + 1).toString().padStart(2, '0');
+      let idBaru = 'p' + (this.produkService.dataProduk.length + 1);
       let produkBaru = {
         id: idBaru,
         nama: this.nama,

@@ -25,8 +25,9 @@ export class EditProdukPage implements OnInit {
     private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      let id = params.get('id');
+    this.route.params.subscribe(params => {
+      let id = params['id'];
+
       if (id !== null) {
         this.produkId = id;
 
