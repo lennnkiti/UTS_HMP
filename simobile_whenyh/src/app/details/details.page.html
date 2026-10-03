@@ -28,8 +28,19 @@
         </ion-item>
 
         <ion-item>
-          <ion-label>Harga</ion-label>
-          <ion-note slot="end" color="primary"><b>Rp {{ produkDetail.harga_jual }}</b></ion-note>
+          <ion-label>Harga Beli</ion-label>
+          <ion-note slot="end" color="primary"><b>Rp {{ produkDetail.harga_beli }}</b></ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Harga Jual</ion-label>
+          <ion-note slot="end"><b>Rp {{ produkDetail.harga_jual }}</b></ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Margin</ion-label>
+          <ion-note slot="end" color="primary"><b>Rp {{ produkDetail.harga_jual
+              - produkDetail.harga_beli}}</b></ion-note>
         </ion-item>
 
         <ion-item>
