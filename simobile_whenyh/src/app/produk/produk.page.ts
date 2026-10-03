@@ -21,19 +21,33 @@ export class ProdukPage implements OnInit {
   }
 
   getFilteredProduk() {
-    let hasilFilter = this.semuaProduk;
+    let hasilFilter = [];
 
-    if (this.searchQuery !== '') {
-      hasilFilter = hasilFilter.filter(p =>
-        p.nama.toLowerCase().includes(this.searchQuery.toLowerCase())
-      );
-    }
-    if (this.selectedCategory !== 'Semua') {
-      hasilFilter = hasilFilter.filter(p => p.kategori === this.selectedCategory);
+    for (let i = 0; i < this.semuaProduk.length; i++) {
+      let p = this.semuaProduk[i];
+
+      let cocokNama = false;
+      if (this.searchQuery === '') {
+        cocokNama = true;
+      } else if (p.nama.toLowerCase().includes(this.searchQuery.toLowerCase())) {
+        cocokNama = true;
+      }
+
+      let cocokKategori = false;
+      if (this.selectedCategory === 'Semua') {
+        cocokKategori = true;
+      } else if (p.kategori === this.selectedCategory) {
+        cocokKategori = true;
+      }
+
+      if (cocokNama && cocokKategori) {
+        hasilFilter.push(p);
+      }
     }
 
     return hasilFilter;
   }
+
 
   chunkArray(arr: any[], chunkSize: number): any[][] {
     const result = [];

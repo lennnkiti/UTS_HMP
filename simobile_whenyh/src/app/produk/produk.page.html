@@ -24,11 +24,11 @@
       [(ngModel)]="searchQuery">
     </ion-input>
   </ion-item>
- <ion-list>
+  <ion-list>
     <ion-list-header>
       <ion-label>Filter Kategori</ion-label>
     </ion-list-header>
-    
+
     <ion-radio-group [(ngModel)]="selectedCategory">
 
       <div style="display: flex; padding-bottom: 10px;">
@@ -84,7 +84,7 @@
               + Keranjang
             </ion-button>
 
-            <ion-button expand="block" size="small"  color="danger" routerLink="/edit-produk/{{ p.id }}">
+            <ion-button expand="block" size="small" color="danger" routerLink="/edit-produk/{{ p.id }}">
               <ion-icon slot="start" name="create-outline"></ion-icon>
               Edit Produk
             </ion-button>
