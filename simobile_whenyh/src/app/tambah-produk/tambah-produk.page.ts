@@ -15,6 +15,7 @@ export class TambahProdukPage implements OnInit {
   harga_jual: number = 0;
   stok: number = 0;
   gambar: string = '';
+  deskripsi: string = '';
 
   isSubmit: boolean = false;
 
@@ -22,11 +23,11 @@ export class TambahProdukPage implements OnInit {
 
   ngOnInit() {
   }
- simpan() {
-    this.isSubmit = true; 
+  simpan() {
+    this.isSubmit = true;
 
     if (this.nama !== '' && this.kategori !== '' && this.harga_beli > 0 && this.harga_jual > 0 && this.stok >= 0) {
-      
+
       let idBaru = 'p' + (this.produkService.dataProduk.length + 1).toString().padStart(2, '0');
       let produkBaru = {
         id: idBaru,
@@ -36,7 +37,8 @@ export class TambahProdukPage implements OnInit {
         harga_beli: this.harga_beli,
         harga_jual: this.harga_jual,
         terjual: 0,
-        gambar: this.gambar
+        gambar: this.gambar,
+        deskripsi: this.deskripsi
       };
 
       this.produkService.dataProduk.push(produkBaru);
@@ -52,6 +54,7 @@ export class TambahProdukPage implements OnInit {
     this.harga_jual = 0;
     this.stok = 0;
     this.gambar = '';
+    this.deskripsi = '';
     this.isSubmit = false;
   }
 }

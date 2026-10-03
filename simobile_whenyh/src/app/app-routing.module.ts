@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-    {
+  {
     path: 'dashboard',
-    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
+    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardPageModule)
   },
   {
     path: '',
@@ -13,43 +13,43 @@ const routes: Routes = [
   },
   {
     path: 'about',
-    loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
+    loadChildren: () => import('./about/about.module').then(m => m.AboutPageModule)
   },
   {
-    path: 'details',
-    loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)
+    path: 'details/:id',
+    loadChildren: () => import('./details/details.module').then(m => m.DetailsPageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
   },
   {
     path: 'produk',
-    loadChildren: () => import('./produk/produk.module').then( m => m.ProdukPageModule)
+    loadChildren: () => import('./produk/produk.module').then(m => m.ProdukPageModule)
   },
   {
     path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule)
   },
   {
     path: 'settings',
-    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
+    loadChildren: () => import('./settings/settings.module').then(m => m.SettingsPageModule)
   },
   {
     path: 'tambah-produk',
-    loadChildren: () => import('./tambah-produk/tambah-produk.module').then( m => m.TambahProdukPageModule)
+    loadChildren: () => import('./tambah-produk/tambah-produk.module').then(m => m.TambahProdukPageModule)
   },
   {
     path: 'transaksi',
-    loadChildren: () => import('./transaksi/transaksi.module').then( m => m.TransaksiPageModule)
+    loadChildren: () => import('./transaksi/transaksi.module').then(m => m.TransaksiPageModule)
   },
   {
     path: 'keranjang',
-    loadChildren: () => import('./keranjang/keranjang.module').then( m => m.KeranjangPageModule)
+    loadChildren: () => import('./keranjang/keranjang.module').then(m => m.KeranjangPageModule)
   },
   {
     path: 'edit-produk/:id',
-    loadChildren: () => import('./edit-produk/edit-produk.module').then( m => m.EditProdukPageModule)
+    loadChildren: () => import('./edit-produk/edit-produk.module').then(m => m.EditProdukPageModule)
   },
 
 ];

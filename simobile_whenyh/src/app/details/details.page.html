@@ -1,13 +1,42 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
-    <ion-title>DETAILS</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/produk"></ion-back-button>
+    </ion-buttons>
+    <ion-title>DETAIL PRODUK</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">details</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding" *ngIf="produkDetail">
+  <ion-card>
+    <img
+      [src]="produkDetail.gambar === '' ? 'https://ionicframework.com/docs/img/demos/thumbnail.svg' : produkDetail.gambar"
+      style="width: 100%; height: 260px; object-fit: cover;" />
+
+    <ion-card-header>
+      <ion-card-subtitle>{{ produkDetail.kategori }}</ion-card-subtitle>
+      <ion-card-title>{{ produkDetail.nama }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list lines="full">
+        <ion-item>
+          <ion-label>Sisa Stok</ion-label>
+          <ion-badge [color]="produkDetail.stok > 0 ? 'success' : 'danger'" slot="end">
+            {{ produkDetail.stok }}
+          </ion-badge>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Harga</ion-label>
+          <ion-note slot="end" color="primary"><b>Rp {{ produkDetail.harga_jual }}</b></ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Deskripsi</ion-label>
+          <ion-note slot="end" color="primary"><b>{{ produkDetail.deskripsi }}</b></ion-note>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

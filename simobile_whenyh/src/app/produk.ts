@@ -3,20 +3,20 @@ import { Injectable } from '@angular/core';
 @Injectable({ providedIn: 'root' })
 export class Produk {
 
-    public dataProduk = [
-    { id: 'p01', nama: 'Beras Ramos 5kg', kategori: 'Sembako', stok: 15, harga_beli: 60000, harga_jual: 65000, terjual: 12, gambar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfqMQoBNA13CSOsKqaSA5QxEzh60mF7N6mM_C_zvG6sor6LXaAkD8n2ApD&s=10' },
-    { id: 'p02', nama: 'Gula Gulaku 1kg', kategori: 'Sembako', stok: 20, harga_beli: 12000, harga_jual: 14000, terjual: 8, gambar: 'https://diabetasol.com/uploads/ngc_global_posts/67d8d8a434192_20250318092124-1-800.jpg' },
-    { id: 'p03', nama: 'Minyak Goreng Bimoli 2L', kategori: 'Sembako', stok: 0, harga_beli: 30000, harga_jual: 34000, terjual: 25, gambar: 'https://images.tokopedia.net/img/cache/700/VqbcmM/2021/10/6/ac342dfb-f635-4c3a-abc5-2e4693746842.jpg.webp' }, 
-    { id: 'p04', nama: 'Indomie Goreng', kategori: 'Makanan', stok: 100, harga_beli: 2500, harga_jual: 3000, terjual: 150, gambar: 'https://cdn.bormadago.com/media/images/products/2021/04/2501a.jpg' }, 
-    { id: 'p05', nama: 'Teh Pucuk Harum', kategori: 'Minuman', stok: 50, harga_beli: 3000, harga_jual: 4000, terjual: 45, gambar: '' },
-    { id: 'p06', nama: 'Kopi Kapal Api', kategori: 'Minuman', stok: 30, harga_beli: 1000, harga_jual: 1500, terjual: 60, gambar: 'https://jagadtani.com/uploads/news/2025/12/kopi-kapal-api-dari-91958a31ba9d48b.png' },
-    { id: 'p07', nama: 'Tepung Segitiga Biru', kategori: 'Sembako', stok: 10, harga_beli: 10000, harga_jual: 12000, terjual: 5, gambar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdLMer5T_miXkjo8uP0XGecWicztXuNgvsHrsv-0h4zhOuZybu7ESofWnL&s=10' },
-    { id: 'p08', nama: 'Sabun Lifebuoy', kategori: 'Kebutuhan Mandi', stok: 25, harga_beli: 3000, harga_jual: 4000, terjual: 18, gambar: '' }, 
-    { id: 'p09', nama: 'Shampoo Clear', kategori: 'Kebutuhan Mandi', stok: 0, harga_beli: 18000, harga_jual: 22000, terjual: 10, gambar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0nCkZVKuoW6VyEtuhQMsTOWyD6At4FlJmbvRRhKjM0qk0cs9Fe63NN3kG&s=10' }, 
-    { id: 'p10', nama: 'Kecap Bango', kategori: 'Bumbu', stok: 40, harga_beli: 8000, harga_jual: 10000, terjual: 30, gambar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDPjtVanZGUyZne1UnXP_h1zWnb4amHqnGRqPFI4Mpen7DA0FP5DnZG3YC&s=10' }
+  public dataProduk = [
+    { id: 'p01', nama: 'Beras Ramos 5kg', kategori: 'Sembako', stok: 15, harga_beli: 60000, harga_jual: 65000, terjual: 12, gambar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfqMQoBNA13CSOsKqaSA5QxEzh60mF7N6mM_C_zvG6sor6LXaAkD8n2ApD&s=10', deskripsi: 'Beras adalah bagian bulir padi (Oryza sativa) yang telah dipisahkan dari kulit luarnya atau sekam melalui proses penggilingan.' },
+    { id: 'p02', nama: 'Gula Gulaku 1kg', kategori: 'Sembako', stok: 20, harga_beli: 12000, harga_jual: 14000, terjual: 8, gambar: 'https://diabetasol.com/uploads/ngc_global_posts/67d8d8a434192_20250318092124-1-800.jpg', deskripsi: 'Gula adalah karbohidrat sederhana yang berasa manis dan digunakan sebagai sumber energi serta bahan pemanis pada makanan dan minuman' },
+    { id: 'p03', nama: 'Minyak Goreng Bimoli 2L', kategori: 'Sembako', stok: 0, harga_beli: 30000, harga_jual: 34000, terjual: 25, gambar: 'https://images.tokopedia.net/img/cache/700/VqbcmM/2021/10/6/ac342dfb-f635-4c3a-abc5-2e4693746842.jpg.webp', deskripsi: 'Minyak goreng adalah minyak nabati atau hewani cair yang digunakan untuk memasak dan menggoreng makanan' },
+    { id: 'p04', nama: 'Indomie Goreng', kategori: 'Makanan', stok: 100, harga_beli: 2500, harga_jual: 3000, terjual: 150, gambar: 'https://cdn.bormadago.com/media/images/products/2021/04/2501a.jpg', deskripsi: 'Indomie Goreng adalah mie instan goreng yang diproduksi oleh Indofood' },
+    { id: 'p05', nama: 'Teh Pucuk Harum', kategori: 'Minuman', stok: 50, harga_beli: 3000, harga_jual: 4000, terjual: 45, gambar: '', deskripsi: 'Teh Pucuk Harum adalah teh botol yang diproduksi oleh Mayora' },
+    { id: 'p06', nama: 'Kopi Kapal Api', kategori: 'Minuman', stok: 30, harga_beli: 1000, harga_jual: 1500, terjual: 60, gambar: 'https://jagadtani.com/uploads/news/2025/12/kopi-kapal-api-dari-91958a31ba9d48b.png', deskripsi: 'Kopi Kapal Api adalah kopi bubuk yang diproduksi oleh Santos' },
+    { id: 'p07', nama: 'Tepung Segitiga Biru', kategori: 'Sembako', stok: 10, harga_beli: 10000, harga_jual: 12000, terjual: 5, gambar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdLMer5T_miXkjo8uP0XGecWicztXuNgvsHrsv-0h4zhOuZybu7ESofWnL&s=10', deskripsi: 'Tepung Segitiga Biru adalah tepung terigu protein sedang yang diproduksi oleh Bogasari' },
+    { id: 'p08', nama: 'Sabun Lifebuoy', kategori: 'Kebutuhan Mandi', stok: 25, harga_beli: 3000, harga_jual: 4000, terjual: 18, gambar: '', deskripsi: 'Sabun batang adalah produk pembersih padat yang dibuat melalui proses reaksi kimia bernama saponifikasi, yaitu pencampuran antara lemak atau minyak (nabati maupun hewani) dengan senyawa alkali atau basa (seperti natrium hidroksida atau NaOH).' },
+    { id: 'p09', nama: 'Shampoo Clear', kategori: 'Kebutuhan Mandi', stok: 0, harga_beli: 18000, harga_jual: 22000, terjual: 10, gambar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0nCkZVKuoW6VyEtuhQMsTOWyD6At4FlJmbvRRhKjM0qk0cs9Fe63NN3kG&s=10', deskripsi: 'Shampo adalah produk perawatan rambut yang digunakan untuk membersihkan rambut dan kulit kepala dari kotoran, minyak, dan ketombe' },
+    { id: 'p10', nama: 'Kecap Bango', kategori: 'Bumbu', stok: 40, harga_beli: 8000, harga_jual: 10000, terjual: 30, gambar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDPjtVanZGUyZne1UnXP_h1zWnb4amHqnGRqPFI4Mpen7DA0FP5DnZG3YC&s=10', deskripsi: 'Kecap manis adalah saus kental yang terbuat dari kedelai, gula aren, dan rempah-rempah' }
   ];
 
-   getTotalMacamProduk(): number {
+  getTotalMacamProduk(): number {
     return this.dataProduk.length;
   }
 
