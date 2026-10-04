@@ -13,6 +13,8 @@ export class DetailsPage implements OnInit {
 
   produkId: string = '';
   produkDetail: any = null;
+  alertButtons = ['OK'];
+  tampilkanAlert = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,6 +32,7 @@ export class DetailsPage implements OnInit {
   tambahKeKeranjang() {
     if (this.produkDetail && this.produkDetail.stok > 0) {
       this.keranjang.addProduct(this.produkDetail);
+      this.tampilkanAlert = true;
     }
   }
 

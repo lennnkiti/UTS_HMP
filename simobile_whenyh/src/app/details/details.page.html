@@ -4,6 +4,11 @@
       <ion-back-button defaultHref="/produk"></ion-back-button>
     </ion-buttons>
     <ion-title>DETAIL PRODUK</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/keranjang">
+        <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -50,4 +55,8 @@
       </ion-list>
     </ion-card-content>
   </ion-card>
+
+  <ion-button expand="block" class="ion-margin-top" [disabled]="produkDetail.stok == 0" (click)="tambahKeKeranjang()">
+    <ion-icon slot="start" name="cart-outline"></ion-icon> + Keranjang</ion-button>
+  <ion-alert [isOpen]="tampilkanAlert" header="Berhasil" message="Barang berhasil ditambahkan ke keranjang" [buttons]="alertButtons" (didDismiss)="tampilkanAlert = false"></ion-alert>
 </ion-content>
