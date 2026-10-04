@@ -51,6 +51,10 @@ const routes: Routes = [
     path: 'edit-produk/:id',
     loadChildren: () => import('./edit-produk/edit-produk.module').then(m => m.EditProdukPageModule)
   },
+  {
+    path: 'detail-transaksi/:index',
+    loadChildren: () => import('./detail-transaksi/detail-transaksi.module').then( m => m.DetailTransaksiPageModule)
+  },
 
 ];
 

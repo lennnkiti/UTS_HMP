@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/transaksi"></ion-back-button>
+    </ion-buttons>
+    <ion-title>DETAIL TRANSAKSI</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" *ngIf="transaksi">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>{{ transaksi.tanggal }}</ion-card-subtitle>
+      <ion-card-title>Rincian Belanja</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list lines="full">
+        <ion-item *ngFor="let item of transaksi.items" button="true" routerLink="/details/{{ item.produkId }}">
+          <ion-label>
+            <h3>{{ item.nama }}</h3>
+            <p>{{ item.jumlah }} x Rp {{ item.harga }}</p>
+          </ion-label>
+          <ion-note slot="end">Rp {{ item.jumlah * item.harga }}</ion-note>
+        </ion-item>
+      </ion-list>
+
+      <div style="margin-top: 10px; font-weight: bold; text-align: right;">
+        Total harga: Rp {{ transaksi.totalHarga }}
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

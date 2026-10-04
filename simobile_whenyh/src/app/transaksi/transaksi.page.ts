@@ -1,18 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Produk } from '../produk';
-import { TransaksiService } from '../transaksi.service';
-
-export interface ItemBelanja {
-  nama: string;
-  jumlah: number;
-  harga: number;
-}
-
-export interface Transaksi {
-  tanggal: string;
-  items: ItemBelanja[];
-  totalHarga: number;
-}
+import { TransaksiService, Transaksi } from '../transaksi.service';
 
 @Component({
   selector: 'app-transaksi',

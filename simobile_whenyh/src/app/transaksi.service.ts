@@ -14,6 +14,7 @@ export interface ItemBelanja {
     nama: string;
     jumlah: number;
     harga: number;
+    produkId: string;
 }
 
 export interface Transaksi {
@@ -83,6 +84,7 @@ export class TransaksiService {
                         nama: prod.nama,
                         jumlah: item.jumlah,
                         harga: prod.harga_jual,
+                        produkId: item.produkId
                     });
                     totalharga += prod.harga_jual * item.jumlah;
                 }

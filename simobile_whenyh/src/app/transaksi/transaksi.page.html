@@ -14,7 +14,7 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-card *ngFor="let t of daftarTransaksi">
+  <ion-card *ngFor="let t of daftarTransaksi; let i =index" button="true" routerLink="/detail-transaksi/{{ i }}">
     <ion-card-header>
       <ion-card-subtitle>{{ t.tanggal }}</ion-card-subtitle>
       <ion-card-title>Item yang dibeli :</ion-card-title>

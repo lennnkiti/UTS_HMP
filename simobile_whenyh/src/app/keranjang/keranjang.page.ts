@@ -55,7 +55,8 @@ export class KeranjangPage implements OnInit {
       itemBelanja.push({
         nama: i.nama,
         jumlah: i.jumlah,
-        harga: i.harga_jual
+        harga: i.harga_jual,
+        produkId: i.id
       })
       this.produkService.kurangiStok(i.id, i.jumlah);
     }
