@@ -13,6 +13,8 @@ export class ProdukPage implements OnInit {
   searchQuery: string = '';
   selectedCategory: string = 'Semua';
   semuaProduk: any[] = [];
+  alertButtons = ['OK'];
+  tampilkanAlert = false;
 
   constructor(private produk: Produk, private keranjang: Keranjang) { }
 
@@ -59,6 +61,7 @@ export class ProdukPage implements OnInit {
 
   tambahKeKeranjang(item: any) {
     this.keranjang.addProduct(item);
+    this.tampilkanAlert = true;
   }
 
 }
