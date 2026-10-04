@@ -30,4 +30,13 @@
   --ion-color-primary: #2a9d8f;
   --ion-color-secondary: #e6af2e;
   --ion-border-color: #333333;
+
+  ion-card-title,
+  ion-card-subtitle,
+  ion-label,
+  ion-note,
+  ion-text,
+  h1, h2, h3, h4, h5, h6, p {
+    color: var(--ion-text-color);
+  }
 }
