@@ -33,4 +33,14 @@ export class Produk {
   getProdukById(id: string) {
     return this.dataProduk.find(p => p.id === id);
   }
+
+  kurangiStok(id: string, jumlah: number) {
+    const prod = this.getProdukById(id);
+    if (prod) {
+      prod.stok -= jumlah;
+      if(prod.stok < 0) {
+        prod.stok = 0;
+      }
+    }
+  }
 }

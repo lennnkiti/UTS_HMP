@@ -24,11 +24,15 @@ export class TransaksiPage implements OnInit {
 
   daftarTransaksi: Transaksi[] = [];
 
-  constructor(private transaksiService: TransaksiService, private productService: Produk, private cdr: ChangeDetectorRef) { }
+  constructor(
+    private transaksiService: TransaksiService,
+    private productService: Produk,
+    private cdr: ChangeDetectorRef
+  ) { }
 
   ngOnInit() {
     this.transaksiService.inisialisasi(this.productService);
-    this.refreshHistory();
+    this.daftarTransaksi = this.transaksiService.getRiwayat();
     // const dataRaw = [
     //   {
     //     tanggal: '27 September 2026',
@@ -78,13 +82,10 @@ export class TransaksiPage implements OnInit {
   }
 
   ionViewDidEnter() {
-    this.refreshHistory();
-  }
-
-  private refreshHistory() {
-    this.daftarTransaksi = [...this.transaksiService.getRiwayat()];
+    this.daftarTransaksi = this.transaksiService.getRiwayat();
     this.cdr.detectChanges();
   }
+
 }
 
 

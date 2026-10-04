@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemKeranjang, Keranjang } from '../keranjang';
 import { ItemBelanja, TransaksiService } from '../transaksi.service';
+import { Produk } from '../produk';
 import { Route, Router } from '@angular/router';
 
 @Component({
@@ -12,7 +13,7 @@ import { Route, Router } from '@angular/router';
 export class KeranjangPage implements OnInit {
   items: ItemKeranjang[] = [];
 
-  constructor( private keranjangService: Keranjang, private transaksiService: TransaksiService, private router: Router) { }
+  constructor( private keranjangService: Keranjang, private transaksiService: TransaksiService, private produkService: Produk, private router: Router) { }
 
   ngOnInit() {
     this.items = this.keranjangService.getItems();
@@ -56,6 +57,7 @@ export class KeranjangPage implements OnInit {
         jumlah: i.jumlah,
         harga: i.harga_jual
       })
+      this.produkService.kurangiStok(i.id, i.jumlah);
     }
     
 
