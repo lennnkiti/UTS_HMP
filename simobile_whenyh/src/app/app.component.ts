@@ -10,7 +10,7 @@ import { Theme } from './theme';
   standalone: false,
 })
 export class AppComponent {
-  constructor(public auth: Auth, private router: Router, public themeService: Theme) { }
+  constructor(public auth: Auth, private router: Router) { }
 
   logout() {
     this.auth.logout();
