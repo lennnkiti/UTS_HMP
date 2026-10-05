@@ -9,6 +9,9 @@
     <ion-buttons slot="end">
       <ion-button routerLink="/keranjang">
         <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+        <ion-badge *ngIf="getJumlahJenisKeranjang() > 0" color="danger" style="position: absolute; top: -5px; right: -5px; font-size: 10px;">
+          {{ getJumlahJenisKeranjang() }}
+        </ion-badge>
       </ion-button>
       <ion-button routerLink="/tambah-produk">
         <ion-icon slot="icon-only" name="add-circle"></ion-icon>

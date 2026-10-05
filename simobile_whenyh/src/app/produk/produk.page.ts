@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Produk } from '../produk';
 import { Keranjang } from '../keranjang';
+import { AnimationController } from '@ionic/angular/lazy';
 
 @Component({
   selector: 'app-produk',
@@ -16,7 +17,7 @@ export class ProdukPage implements OnInit {
   alertButtons = ['OK'];
   tampilkanAlert = false;
 
-  constructor(private produk: Produk, private keranjang: Keranjang) { }
+  constructor(private produk: Produk, private keranjang: Keranjang, private animationCtrl: AnimationController) { }
 
   ngOnInit() {
     this.semuaProduk = this.produk.dataProduk;
@@ -91,6 +92,10 @@ export class ProdukPage implements OnInit {
   getJumlahDiKeranjang(id: string): number {
     const item = this.keranjang.getItemKeranjang(id);
     return item ? item.jumlah : 0;
+  }
+
+  getJumlahJenisKeranjang(): number {
+    return this.keranjang.getItems().length;
   }
 
 }
