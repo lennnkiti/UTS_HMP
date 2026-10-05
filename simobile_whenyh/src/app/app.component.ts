@@ -10,18 +10,10 @@ import { Theme } from './theme';
   standalone: false,
 })
 export class AppComponent {
-  private logoutDiminta = false;
   constructor(public auth: Auth, private router: Router) { }
 
-  requestLogout() {
-    this.logoutDiminta = true;
-  }
-
-  onMenuClose() {
-    if (this.logoutDiminta) {
-      this.logoutDiminta = false;
-      this.auth.logout();
-      this.router.navigate(['/target-route']);
-    }
+  logout() {
+    this.auth.logout();
+    this.router.navigate(['/login']);
   }
 }
