@@ -10,9 +10,18 @@ import { Theme } from './theme';
   standalone: false,
 })
 export class AppComponent {
+  private logoutDiminta = false;
   constructor(public auth: Auth, private router: Router) { }
 
-  logout() {
-    this.auth.logout();
+  requestLogout() {
+    this.logoutDiminta = true;
+  }
+
+  onMenuClose() {
+    if (this.logoutDiminta) {
+      this.logoutDiminta = false;
+      this.auth.logout();
+      window.location.href = '/login';
+    }
   }
 }
