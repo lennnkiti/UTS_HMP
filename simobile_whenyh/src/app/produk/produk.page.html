@@ -80,7 +80,21 @@
           <ion-card-content>
             <p>Stok: {{ p.stok }}</p>
 
-            <ion-button expand="block" size="small" [disabled]="p.stok == 0" (click)="tambahKeKeranjang(p)">
+            
+              <!-- <div *ngIf="getJumlahDiKeranjang(p.id) > 0" style="display: flex; align-items: center; justify-content: center;">
+                <ion-button size ="small" color="light" (click)="kurangiDariKeranjang(p)">
+                  <ion-icon slot="icon-only" name="remove-outline"></ion-icon>
+                </ion-button>
+                <ion-input type="number" [value]="keranjangItem(p.id).jumlah" readonly
+                  style="width: 55px; text-align: center; border: 1px solid #ccc; border-radius: 5px; margin: 0 10px;">
+                </ion-input>
+                <ion-button size="small" color="light" [disabled]="getJumlahDiKeranjang(p.id) >= p.stok" (click)="tambahKeKeranjang(p)">
+                  <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+                </ion-button>
+              </div> -->
+            <ion-button 
+            <!-- *ngIf="getJumlahDiKeranjang(p.id) === 0"  -->
+            expand="block" size="small" [disabled]="p.stok == 0" (click)="tambahKeKeranjang(p)">
               + Keranjang
             </ion-button>
             

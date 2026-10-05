@@ -66,4 +66,18 @@ export class Keranjang {
         }
         return jumlah;
     }
+
+    getItemKeranjang(id:string) : ItemKeranjang | undefined {
+        return this.items.find(i => i.id == id);
+    }
+
+    kurangiProduct(id: string) {
+        const item = this.items.find(i => i.id == id);
+        if (item) {
+            item.jumlah--;
+            if (item.jumlah <= 0) {
+                this.hapusItem(id);
+            }
+        }
+    }
 }

@@ -60,8 +60,37 @@ export class ProdukPage implements OnInit {
   }
 
   tambahKeKeranjang(item: any) {
+    const sudahAda = this.getJumlahDiKeranjang(item.id) > 0;
     this.keranjang.addProduct(item);
-    this.tampilkanAlert = true;
+    if (!sudahAda) {                                         
+      this.tampilkanAlert = true;
+    }
+  }
+
+  validasiJumlah(item: any) {
+    const dikeranjang = this.keranjang.getItemKeranjang(item.id);
+    if (!dikeranjang) {
+      return;
+    }
+
+    if (dikeranjang.jumlah == null || dikeranjang.jumlah < 1) {
+      dikeranjang.jumlah = 1;
+    } else if (dikeranjang.jumlah > item.stok) {
+      dikeranjang.jumlah = item.stok;
+    }
+  }
+
+  keranjangItem(id: string) {
+    return this.keranjang.getItemKeranjang(id)!;
+  }
+
+  kurangiDariKeranjang(item: any) {
+    this.keranjang.kurangiProduct(item.id);
+  }
+
+  getJumlahDiKeranjang(id: string): number {
+    const item = this.keranjang.getItemKeranjang(id);
+    return item ? item.jumlah : 0;
   }
 
 }
