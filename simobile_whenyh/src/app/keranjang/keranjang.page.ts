@@ -13,10 +13,20 @@ import { Route, Router } from '@angular/router';
 export class KeranjangPage implements OnInit {
   items: ItemKeranjang[] = [];
 
-  constructor( private keranjangService: Keranjang, private transaksiService: TransaksiService, private produkService: Produk, private router: Router) { }
+  constructor(private keranjangService: Keranjang, private transaksiService: TransaksiService, private produkService: Produk, private router: Router) { }
 
   ngOnInit() {
     this.items = this.keranjangService.getItems();
+  }
+
+  getStok(id: string): number {
+    let semuaProduk = this.produkService.dataProduk;
+    for (let i = 0; i < semuaProduk.length; i++) {
+      if (semuaProduk[i].id === id) {
+        return semuaProduk[i].stok;
+      }
+    }
+    return 0;
   }
 
 
@@ -30,7 +40,10 @@ export class KeranjangPage implements OnInit {
 
   tambah(item: any) {
     if (item.jumlah < 100) {
-      item.jumlah++;
+      let stokProduk = this.getStok(item.id);
+      if (item.jumlah < stokProduk) {
+        item.jumlah++;
+      }
     }
   }
 
@@ -41,10 +54,11 @@ export class KeranjangPage implements OnInit {
   }
 
   validasiJumlah(item: any) {
+    let stokTersedia = this.getStok(item.id);
     if (item.jumlah < 1 || item.jumlah == null) {
-      item.jumlah = 1; 
-    } else if (item.jumlah > 100) {
-      item.jumlah = 100;
+      item.jumlah = 1;
+    } else if (item.jumlah > stokTersedia) {
+      item.jumlah = stokTersedia;
     }
   }
 
@@ -60,7 +74,7 @@ export class KeranjangPage implements OnInit {
       })
       this.produkService.kurangiStok(i.id, i.jumlah);
     }
-    
+
 
     this.transaksiService.tambahTransaksi(itemBelanja, this.getTotal());
     this.keranjangService.hapusSemua();
