@@ -84,7 +84,7 @@
             <p>Stok: {{ p.stok }}</p>
 
             
-              <div *ngIf="getJumlahDiKeranjang(p.id) > 0" style="display: flex; align-items: center; justify-content: center;">
+              <div *ngIf="getJumlahDiKeranjang(p.id) > 0" style="display: flex; align-items: center; justify-content: flex-end;">
                 <ion-button size ="small" color="light" (click)="kurangiDariKeranjang(p)">
                   <ion-icon slot="icon-only" name="remove-outline"></ion-icon>
                 </ion-button>
