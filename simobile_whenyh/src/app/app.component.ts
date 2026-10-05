@@ -21,7 +21,7 @@ export class AppComponent {
     if (this.logoutDiminta) {
       this.logoutDiminta = false;
       this.auth.logout();
-      window.location.href = '/login';
+      this.router.navigate(['/target-route']);
     }
   }
 }
