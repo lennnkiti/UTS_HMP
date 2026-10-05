@@ -25,6 +25,9 @@
       <ion-label>
         <h2>{{ item.nama }}</h2>
         <p style="color: gray; font-size: 12px;">Stok tersedia: {{ getStok(item.id) }}</p>
+        <p *ngIf="item.jumlah > getStok(item.id)" style="color: red; font-weight: bold; font-size: 12px;">
+          Stok tidak mencukupi, mohon kurangi jumlah!
+        </p>
         <p>Harga: Rp {{ item.harga_jual }}</p>
 
         <div style="display: flex; align-items: center; margin-top: 8px;">
@@ -61,6 +64,11 @@
           <ion-icon slot="start" name="checkmark-circle-outline"></ion-icon>
           Konfirmasi Transaksi
         </ion-button>
+
+        <ion-alert [isOpen]="gagalCheckout" header="Gagal Checkout"
+          message="Ada barang di keranjang yang stoknya sudah tidak mencukupi. Silakan sesuaikan jumlahnya terlebih dahulu."
+          [buttons]="alertButtons" (didDismiss)="gagalCheckout = false">
+        </ion-alert>
       </ion-card-content>
     </ion-card>
   </div>

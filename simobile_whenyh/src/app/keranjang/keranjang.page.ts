@@ -12,6 +12,8 @@ import { Route, Router } from '@angular/router';
 })
 export class KeranjangPage implements OnInit {
   items: ItemKeranjang[] = [];
+  gagalCheckout: boolean = false;
+  alertButtons = ['OK'];
 
   constructor(private keranjangService: Keranjang, private transaksiService: TransaksiService, private produkService: Produk, private router: Router) { }
 
@@ -62,8 +64,21 @@ export class KeranjangPage implements OnInit {
     }
   }
 
+  stokTidakCukup(): boolean {
+    for (let item of this.items) {
+      if (item.jumlah > this.getStok(item.id)) {
+        return true;
+      }
+    }
+    return false;
+  }
 
   konfirmasiTransaksi() {
+    if (this.stokTidakCukup()) {
+      this.gagalCheckout = true;
+      return;
+    }
+    
     let itemBelanja: ItemBelanja[] = [];
     for (let i of this.items) {
       itemBelanja.push({
