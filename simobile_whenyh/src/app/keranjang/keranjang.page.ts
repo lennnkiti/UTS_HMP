@@ -50,9 +50,7 @@ export class KeranjangPage implements OnInit {
   }
 
   kurang(item: any) {
-    if (item.jumlah > 1) {
-      item.jumlah--;
-    }
+    this.keranjangService.kurangiProduct(item.id);
   }
 
   validasiJumlah(item: any) {
@@ -78,7 +76,7 @@ export class KeranjangPage implements OnInit {
       this.gagalCheckout = true;
       return;
     }
-    
+
     let itemBelanja: ItemBelanja[] = [];
     for (let i of this.items) {
       itemBelanja.push({

@@ -31,7 +31,7 @@
         <p>Harga: Rp {{ item.harga_jual }}</p>
 
         <div style="display: flex; align-items: center; margin-top: 8px;">
-          <ion-button size="small" color="light" (click)="kurang(item)" [disabled]="item.jumlah <= 1">
+          <ion-button size="small" color="light" (click)="kurang(item)">
             <ion-icon slot="icon-only" name="remove-outline"></ion-icon>
           </ion-button>
 
