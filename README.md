@@ -47,3 +47,13 @@ Install Node.js (https://nodejs.org/dist/v24.21.0/node-v24.21.0-x64.msi)
 5. Form Tambah dan Edit Produk
    - Membuat form untuk menambahkan produk baru dan mengedit produk yang sudah ada menggunakan Angular Reactive Forms.
    - Terdapay pesan error yang muncul di bawah field yang salah tanpa mereset isian form.
+6. Toogle Dark Mode
+   - Pergantian mode menjadi dark atau light yang bertujuan untuk kenyamanan penggunaan. Untuk menggunakan fitur ini dapat mencari tooglenya di halaman pengaturan.
+7. Animasi
+   - Terdapat animasi pada halaman profil dimana foto pengguna muncul dengan efek transasi membesar dari ukuran kecil ke besar.
+8. Keranjang dan Checkout
+   - Terdapat halaman keranjang yang berfungsi menampung produk yang ingin dibeli pengguna sebelum checkout.
+   - Terdapat tombol "Konfirmasi Transaksi" untuk memproses belanjaan dan sistem secaara otomatis memotong stok produk yang telah dibeli dan menyimpan transaksi tersebut ke ke halaman daftar transaksi.
+9. Riwayat dan Detail Transaksi
+   - Menampilkan daftar seluruh transaksi yang pernah dilakukan
+   - Setiap riwayat transaksi dapat di klik untuk melihat detail rincian produk yang dibeli.
