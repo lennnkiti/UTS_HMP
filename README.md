@@ -29,6 +29,21 @@ Install Node.js (https://nodejs.org/dist/v24.21.0/node-v24.21.0-x64.msi)
   - Buka menu terminal
   - Pilih new terminal
   - Jalankan perintah ``` ionic serve ```
-  - (soon karena lupa message apa saja yang muncul pertama kali saat di serve)
+  - Jika ditanya "? Install @angular/cli? (Y/n)" ketikkan Y lalu enter (hanya ditanya ketika pertama kali menjalankan aplikasi)
+  - Website akan terbuka pada port 8100 dengan url "localhost:8100"
 
 ## Daftar Fitur
+1. Struktur Navigasi
+   - Tab Navigasi Utama : Terdapat di bawah pada halaman website lalu ada 4 menu yaitu Dashboard, Produk, Transaksi, dan Profil.
+   - Side Drawer Menu : ada pada sisi kiri website yang dapat dibuka dengan klik garis 3 di pojok kiri atas atau slide layar dari kiri ke kanan.
+2. Halaman Dashboard
+   - Dapat menampilkan ringkasan penjualan harian secara real time, data yang ditampilkan meliputi Total keseluruhan produk, Total transaksi hari ini, Total penjualan hari ini, dan Produk terlaris.
+3. Pencarian Produk Real Time
+   - Pencarian produk berdasarkan nama produk yang dapat diinputkan oleh pengguna.
+   - Terdapat juga filter Kategori produk menggunakan radio button.
+4. Detail Produk Via Route Parameter
+   - Navigasi yang dapat dilakukan secara dinamis menuju halaman details berdasarkan ID produk dengan contoh "http://localhost:8100/details/p03"
+   - Menampilkan rincian lengkap prodduk seperti : nama produk, stok tersisa, harga beli, harga jual, dan margin dari produk tersebut.
+5. Form Tambah dan Edit Produk
+   - Membuat form untuk menambahkan produk baru dan mengedit produk yang sudah ada menggunakan Angular Reactive Forms.
+   - Terdapay pesan error yang muncul di bawah field yang salah tanpa mereset isian form.
