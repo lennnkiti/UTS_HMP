@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Produk } from '../produk';
 import { TransaksiService, Transaksi } from '../transaksi.service';
 
@@ -14,13 +14,12 @@ export class TransaksiPage implements OnInit {
 
   constructor(
     private transaksiService: TransaksiService,
-    private productService: Produk,
-    private cdr: ChangeDetectorRef
+    private productService: Produk
   ) { }
 
   ngOnInit() {
     this.transaksiService.inisialisasi(this.productService);
-    this.daftarTransaksi = this.transaksiService.getRiwayat();
+    this.muatUlang();
     // const dataRaw = [
     //   {
     //     tanggal: '27 September 2026',
@@ -70,8 +69,11 @@ export class TransaksiPage implements OnInit {
   }
 
   ionViewDidEnter() {
+    this.muatUlang();
+  }
+
+  muatUlang() {
     this.daftarTransaksi = this.transaksiService.getRiwayat();
-    this.cdr.detectChanges();
   }
 
 }
