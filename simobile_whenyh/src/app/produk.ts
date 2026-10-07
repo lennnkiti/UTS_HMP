@@ -39,7 +39,7 @@ export class Produk {
     if (prod) {
       prod.stok -= jumlah;
       prod.terjual += jumlah;
-      if(prod.stok < 0) {
+      if (prod.stok < 0) {
         prod.stok = 0;
       }
     }

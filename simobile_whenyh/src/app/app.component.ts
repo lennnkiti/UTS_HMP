@@ -10,7 +10,12 @@ import { Theme } from './theme';
   standalone: false,
 })
 export class AppComponent {
-  constructor(public auth: Auth, private router: Router) { }
+  constructor(public auth: Auth, private router: Router) {
+    if (!this.auth.isLoggedIn) {
+      this.router.navigate(['/login']);
+    }
+  }
+
 
   logout() {
     this.auth.logout();
