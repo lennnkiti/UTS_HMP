@@ -63,6 +63,7 @@ export class ProdukPage implements OnInit {
   tambahKeKeranjang(item: any) {
     const sudahAda = this.getJumlahDiKeranjang(item.id) > 0;
     this.keranjang.addProduct(item);
+    this.animasiKeranjang();
     if (!sudahAda) {
       this.tampilkanAlert = true;
     }
@@ -116,5 +117,20 @@ export class ProdukPage implements OnInit {
       ]);
     animation.play();
   }
+
+  animasiKeranjang() {
+  const tombol = document.querySelector('#btnKeranjang') as HTMLElement;
+  const animation = this.animationCtrl
+    .create()
+    .addElement(tombol)
+    .duration(400)
+    .iterations(1)
+    .keyframes([
+      { offset: 0, transform: 'scale(1)' },
+      { offset: 0.5, transform: 'scale(1.5)' },
+      { offset: 1, transform: 'scale(1)' },
+    ]);
+  animation.play();
+}
 
 }
