@@ -63,7 +63,7 @@ export class ProdukPage implements OnInit {
   tambahKeKeranjang(item: any) {
     const sudahAda = this.getJumlahDiKeranjang(item.id) > 0;
     this.keranjang.addProduct(item);
-    if (!sudahAda) {                                         
+    if (!sudahAda) {
       this.tampilkanAlert = true;
     }
   }
@@ -96,6 +96,25 @@ export class ProdukPage implements OnInit {
 
   getJumlahJenisKeranjang(): number {
     return this.keranjang.getItems().length;
+  }
+
+  ionViewDidEnter() {
+    this.munculkanProduk();
+  }
+
+  munculkanProduk() {
+    const kartu = document.querySelectorAll('.kartuProduk');
+    console.log('jumlah kartu:', kartu.length);
+    const animation = this.animationCtrl
+      .create()
+      .addElement(kartu)
+      .duration(600)
+      .iterations(1)
+      .keyframes([
+        { offset: 0, opacity: '0', transform: 'translateY(30px)' },
+        { offset: 1, opacity: '1', transform: 'translateY(0px)' },
+      ]);
+    animation.play();
   }
 
 }
