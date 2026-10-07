@@ -50,7 +50,7 @@ Install Node.js (https://nodejs.org/dist/v24.21.0/node-v24.21.0-x64.msi)
 6. Toogle Dark Mode
    - Pergantian mode menjadi dark atau light yang bertujuan untuk kenyamanan penggunaan. Untuk menggunakan fitur ini dapat mencari tooglenya di halaman pengaturan.
 7. Animasi
-   - Animasi Profile : Terdapat animasi pada halaman profil dimana foto pengguna muncul dengan efek tranisi membesar dari ukuran kecil ke besar.
+   - Animasi Profile : Terdapat animasi pada halaman profil dimana foto pengguna muncul dengan efek transisi membesar dari ukuran kecil ke besar.
    - Animasi Masuk Halaman Produk : Saat pengguna berpindah ke halaman produk, daftar produk muncul bergerak dari bawah ke atas secara perlahan.
    - Animasi Badge Keranjang : Saat pengguna menekan tombol "Tambah ke Keranjang" dan menambah jumlah produk yang ingin dibeli, terdapat ikon angka pada logo keranjang beranimasi yang menandakan produk tersebut berhasil ditambah.
 8. Keranjang dan Checkout
