@@ -46,11 +46,13 @@ Install Node.js (https://nodejs.org/dist/v24.21.0/node-v24.21.0-x64.msi)
    - Menampilkan rincian lengkap prodduk seperti : nama produk, stok tersisa, harga beli, harga jual, dan margin dari produk tersebut.
 5. Form Tambah dan Edit Produk
    - Membuat form untuk menambahkan produk baru dan mengedit produk yang sudah ada menggunakan Angular Reactive Forms.
-   - Terdapay pesan error yang muncul di bawah field yang salah tanpa mereset isian form.
+   - Terdapat pesan error yang muncul di bawah field yang salah tanpa mereset isian form.
 6. Toogle Dark Mode
    - Pergantian mode menjadi dark atau light yang bertujuan untuk kenyamanan penggunaan. Untuk menggunakan fitur ini dapat mencari tooglenya di halaman pengaturan.
 7. Animasi
-   - Terdapat animasi pada halaman profil dimana foto pengguna muncul dengan efek transasi membesar dari ukuran kecil ke besar.
+   - Animasi Profile : Terdapat animasi pada halaman profil dimana foto pengguna muncul dengan efek transasi membesar dari ukuran kecil ke besar.
+   - Animasi Masuk Halaman Produk : Saat pengguna berpindah ke halaman produk, daftar produk muncul bergerak dari bawah ke atas secara perlahan.
+   - Animasi Badge Keranjang : Saat pengguna menekan tombol "Tambah ke Keranjang" dan menambah jumlah produk yang ingin dibeli, terdapat ikon angka pada logo keranjang beranimasi yang menandakan produk tersebut berhasil ditambah.
 8. Keranjang dan Checkout
    - Terdapat halaman keranjang yang berfungsi menampung produk yang ingin dibeli pengguna sebelum checkout.
    - Terdapat tombol "Konfirmasi Transaksi" untuk memproses belanjaan dan sistem secaara otomatis memotong stok produk yang telah dibeli dan menyimpan transaksi tersebut ke ke halaman daftar transaksi.
