@@ -35,7 +35,7 @@ Install Node.js (https://nodejs.org/dist/v24.21.0/node-v24.21.0-x64.msi)
 ## Daftar Fitur
 1. Struktur Navigasi
    - Tab Navigasi Utama : Terdapat di bawah pada halaman website lalu ada 4 menu yaitu Dashboard, Produk, Transaksi, dan Profil.
-   - Side Drawer Menu : ada pada sisi kiri website yang dapat dibuka dengan klik garis 3 di pojok kiri atas atau slide layar dari kiri ke kanan.
+   - Side Drawer Menu : ada pada sisi kiri website yang dapat dibuka dengan klik garis 3 di pojok kiri atas atau slide layar dari kiri ke kanan yang berisi Pengaturan, Tentang Aplikasi, dan Logout.
 2. Halaman Dashboard
    - Dapat menampilkan ringkasan penjualan harian secara real time, data yang ditampilkan meliputi Total keseluruhan produk, Total transaksi hari ini, Total penjualan hari ini, dan Produk terlaris.
 3. Pencarian Produk Real Time
@@ -59,3 +59,9 @@ Install Node.js (https://nodejs.org/dist/v24.21.0/node-v24.21.0-x64.msi)
 9. Riwayat dan Detail Transaksi
    - Menampilkan daftar seluruh transaksi yang pernah dilakukan
    - Setiap riwayat transaksi dapat di klik untuk melihat detail rincian produk yang dibeli.
+10. Manajemen User
+    - Terdapat fitur manajemen user dimana pengguna dapat login menggunakan username dan password yang sudah terdaftar.
+    - Terdapat fitur logout yang dapat digunakan untuk keluar dari aplikasi.
+11. Data Dummy
+    - Terdapat 10 data dummy produk yang dapat digunakan untuk menampilkan data pada aplikasi di service produk.ts.
+    - Terdapat 4 data dummy transaksi yang dapat digunakan untuk menampilkan data pada aplikasi di service transaksi.ts.
