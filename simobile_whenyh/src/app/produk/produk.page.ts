@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Produk } from '../produk';
 import { Keranjang } from '../keranjang';
 import { AnimationController } from '@ionic/angular/lazy';
@@ -17,10 +17,20 @@ export class ProdukPage implements OnInit {
   alertButtons = ['OK'];
   tampilkanAlert = false;
 
-  constructor(private produk: Produk, private keranjang: Keranjang, private animationCtrl: AnimationController) { }
+  constructor(private produk: Produk, private keranjang: Keranjang,
+    private animationCtrl: AnimationController, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
-    this.semuaProduk = this.produk.dataProduk;
+
+  }
+
+
+  ionViewWillEnter() {
+    this.produk.produkList().subscribe((data) => {
+      this.semuaProduk = data;
+      this.cdr.detectChanges();
+      this.munculkanProduk();
+    });
   }
 
   getFilteredProduk() {
@@ -119,18 +129,18 @@ export class ProdukPage implements OnInit {
   }
 
   animasiKeranjang() {
-  const tombol = document.querySelector('#btnKeranjang') as HTMLElement;
-  const animation = this.animationCtrl
-    .create()
-    .addElement(tombol)
-    .duration(400)
-    .iterations(1)
-    .keyframes([
-      { offset: 0, transform: 'scale(1)' },
-      { offset: 0.5, transform: 'scale(1.5)' },
-      { offset: 1, transform: 'scale(1)' },
-    ]);
-  animation.play();
-}
+    const tombol = document.querySelector('#btnKeranjang') as HTMLElement;
+    const animation = this.animationCtrl
+      .create()
+      .addElement(tombol)
+      .duration(400)
+      .iterations(1)
+      .keyframes([
+        { offset: 0, transform: 'scale(1)' },
+        { offset: 0.5, transform: 'scale(1.5)' },
+        { offset: 1, transform: 'scale(1)' },
+      ]);
+    animation.play();
+  }
 
 }

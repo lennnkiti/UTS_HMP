@@ -1,7 +1,16 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class Produk {
+
+  constructor(private http: HttpClient) { }
+
+  produkList(): Observable<any> {
+    return this.http.get("https://ubaya.fun/hybrid/160424011/produk_list.php");
+  }
+
 
   public dataProduk = [
     { id: 'p01', nama: 'Beras Ramos 5kg', kategori: 'Sembako', stok: 15, harga_beli: 60000, harga_jual: 65000, terjual: 12, gambar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfqMQoBNA13CSOsKqaSA5QxEzh60mF7N6mM_C_zvG6sor6LXaAkD8n2ApD&s=10', deskripsi: 'Beras adalah bagian bulir padi (Oryza sativa) yang telah dipisahkan dari kulit luarnya atau sekam melalui proses penggilingan.' },
@@ -44,4 +53,5 @@ export class Produk {
       }
     }
   }
+
 }
