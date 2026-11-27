@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,47 +9,38 @@ export class Auth {
   public isLoggedIn: boolean = false;
   public activeUser: any = null;
 
-  public users = [
-    {
-      username: 'admin',
-      password: '1234',
-      nama: 'Bu Marni',
-      role: 'Pemilik Toko',
-      foto: 'https://my.ubaya.ac.id/img/mhs/160424104_l.jpg',
-      noTelp: '081234567890',
-      alamat: 'Jl. Rungkut Makmur No. 10, Surabaya',
-      email: 'bumarni123@gmail.com',
-      ttl: 'Surabaya, 12 Juni 1990'
-    },
-    {
-      username: 'valent',
-      password: '123',
-      nama: 'Valent',
-      role: 'Kasir',
-      foto: 'https://my.ubaya.ac.id/img/mhs/160424077_l.jpg',
-      noTelp: '089876543210',
-      alamat: 'Jl. Tenggilis Mejoyo No. 5, Surabaya',
-      email: 'valent123@gmail.com',
-      ttl: 'Surabaya, 12 April 2006'
+  constructor(private http: HttpClient) {
+    // Cek Local Storage saat aplikasi dibuka/direfresh
+    const savedUser = localStorage.getItem('simobile_user');
+    if (savedUser) {
+      this.activeUser = JSON.parse(savedUser);
+      this.isLoggedIn = true;
     }
-  ];
-
-  constructor() { }
-
-  login(user: string, pass: string): boolean {
-    for (let i = 0; i < this.users.length; i++) {
-      let u = this.users[i];
-      if (u.username === user && u.password === pass) {
-        this.isLoggedIn = true;
-        this.activeUser = u;
-        return true;
-      }
-    }
-    return false;
   }
+
+  login(user: string, pass: string): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const body = new URLSearchParams();
+    body.set('username', user);
+    body.set('password', pass);
+    const urlEncodedData = body.toString();
+    return this.http.post(
+      "https://ubaya.fun/hybrid/160424011/simobile_whenyh/login.php",
+      urlEncodedData,
+      { headers }
+    );
+  }
+
+  setSession(userData: any) {
+    this.isLoggedIn = true;
+    this.activeUser = userData;
+    localStorage.setItem('simobile_user', JSON.stringify(userData));
+  }
+
 
   logout() {
     this.isLoggedIn = false;
     this.activeUser = null;
+    localStorage.removeItem('simobile_user');
   }
 }

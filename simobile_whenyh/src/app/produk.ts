@@ -8,7 +8,7 @@ export class Produk {
   constructor(private http: HttpClient) { }
 
   produkList(): Observable<any> {
-    return this.http.get("https://ubaya.fun/hybrid/160424011/produk_list.php");
+    return this.http.get("https://ubaya.fun/hybrid/160424011/simobile_whenyh/produk_list.php");
   }
 
 

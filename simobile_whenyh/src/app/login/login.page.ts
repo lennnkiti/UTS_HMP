@@ -10,23 +10,33 @@ import { Auth } from '../auth';
 })
 export class LoginPage implements OnInit {
 
- username = '';
+  username = '';
   password = '';
   isError = false;
 
   constructor(private auth: Auth, private router: Router) { }
 
   ngOnInit() {
-  }
-  login() {
-    const sukses = this.auth.login(this.username, this.password);
-
-    if (sukses) {
-      this.isError = false;
-      this.router.navigate(['/dashboard']); 
-    } else {
-      this.isError = true; 
+    if (this.auth.isLoggedIn) {
+      this.router.navigate(['/dashboard']);
     }
   }
 
+  login() {
+    this.auth.login(this.username, this.password).subscribe({
+      next: (response: any) => {
+        if (response.result === 'success') {
+          this.isError = false;
+          this.auth.setSession(response.data);
+          this.router.navigate(['/dashboard']);
+        } else {
+          this.isError = true;
+        }
+      },
+      error: (err) => {
+        console.error('Login error:', err);
+        this.isError = true;
+      }
+    });
+  }
 }
